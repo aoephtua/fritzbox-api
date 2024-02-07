@@ -1,0 +1,25 @@
+{
+  "name": "fritzbox-api",
+  "version": "1.0.0",
+  "description": "Straightforward, lightweight and extendable Node.js library to communicate with FRITZ!Box devices",
+  "main": "./src/fritzBoxApi.mjs",
+  "type": "module",
+  "scripts": {
+    "example_01_getSessionId": "node ./examples/01_getSessionId.mjs",
+    "example_02_getData": "node ./examples/02_getData.mjs",
+    "example_03_getFonCalls": "node ./examples/03_getFonCalls.mjs"
+  },
+  "author": "Thorsten A. Weintz",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aoephtua/fritzbox-api.git"
+  },
+  "keywords": [
+    "FRITZ!Box"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.7"
+  }
+}
+
