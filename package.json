@@ -1,6 +1,6 @@
 {
   "name": "fritzbox-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Straightforward, lightweight and extendable Node.js library to communicate with FRITZ!Box devices",
   "main": "./src/fritzBoxApi.mjs",
   "type": "module",
