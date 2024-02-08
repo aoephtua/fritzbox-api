@@ -7,7 +7,8 @@
   "scripts": {
     "example_01_getSessionId": "node ./examples/01_getSessionId.mjs",
     "example_02_getData": "node ./examples/02_getData.mjs",
-    "example_03_getFonCalls": "node ./examples/03_getFonCalls.mjs"
+    "example_03_getFonCalls": "node ./examples/03_getFonCalls.mjs",
+    "example_04_getLastUser": "node ./examples/04_getLastUser.mjs"
   },
   "author": "Thorsten A. Weintz",
   "repository": {

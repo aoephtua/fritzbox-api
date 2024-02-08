@@ -97,6 +97,19 @@ class FritzBoxApi extends HttpClient {
     }
 
     /**
+     * Gets name of last user.
+     * 
+     * @returns Returns string with name of last user.
+     */
+    async getLastUser() {
+        const { data, status } = await this.get(this.routes.login);
+
+        if (status === 200) {
+            return this.#getXmlElementValue(data, 'User', { last: 1 });
+        }
+    }
+
+    /**
      * Fetches data by pid and additional options.
      * 
      * @param {object} options Object with configuration values.
@@ -158,9 +171,9 @@ class FritzBoxApi extends HttpClient {
      * @returns Returns binary value in hexadecimal notation.
      */
     async #calcReqChallengeResp(challenge, username, password) {
-        const response = challenge.startsWith('2$')
-            ? this.#calcPbkdf2Resp(challenge, password)
-            : this.#calcMd5Resp(challenge, password);
+        const calcResp = challenge.startsWith('2$')
+            ? this.#calcPbkdf2Resp : this.#calcMd5Resp;
+        const response = calcResp(challenge, password);
 
         const { data, status } = await this.post(this.routes.login, { 
             username, response
@@ -213,13 +226,25 @@ class FritzBoxApi extends HttpClient {
         || new Date().getTime() - this.reqDate.getTime() < this.timeInMsTillLogout);
 
     /**
+     * Gets string with XML attributes by keys and values of object.
+     * 
+     * @param {object} attrs Object with keys and values.
+     * @returns Returns string with XML attributes.
+     */
+    #getXmlAttributes = (attrs) => attrs ? ` ${
+        Object.entries(attrs)
+            .map(([key, value]) => `${key}="${value}"`).join(' ')}` : '';
+
+    /**
      * Gets string value of XMLElement by name.
      * 
      * @param {string} data String with XML data.
      * @param {string} name String with name of the XMLElement.
+     * @param {object} attrs Object with attributes of the XMLElement.
      * @returns Returns string with value of XMLElement.
      */
-    #getXmlElementValue = (data, name) => data?.match(`<${name}>(.*?)</${name}>`)?.[1];
+    #getXmlElementValue = (data, name, attrs) =>
+        data?.match(`<${name}${this.#getXmlAttributes(attrs)}>(.*?)</${name}>`)?.[1];
 
     /**
      * Processes asynchronous operation and resolves after given time in milliseconds.
