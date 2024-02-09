@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE in the project root for license information.
 
 import { createHash, pbkdf2Sync } from 'crypto';
+import { XMLParser } from 'fast-xml-parser';
 import HttpClient from './httpClient.mjs';
 
 /**
@@ -20,7 +21,9 @@ class FritzBoxApi extends HttpClient {
     routes = {
         login: '/login_sid.lua?version=2',
         data: '/data.lua',
-        foncalls: '/fon_num/foncalls_list.lua?sid={sid}&csv='
+        foncalls: '/fon_num/foncalls_list.lua?sid={sid}&csv=',
+        firmwarecfg: '/cgi-bin/firmwarecfg',
+        reboot: '/reboot.lua'
     };
 
     /**
@@ -130,6 +133,31 @@ class FritzBoxApi extends HttpClient {
     }
 
     /**
+     * Fetches fonbook of FRITZ!Box device.
+     * 
+     * @param {number} phoneBookId Number with identifier of phone book.
+     * @returns Returns 
+     */
+    async getFonBook(phoneBookId = 0) {
+        const sid = await this.getSessionId();
+
+        if (sid) {
+            const { data, status } = await this.post(this.routes.firmwarecfg, {
+                sid,
+                PhonebookId: phoneBookId,
+                PhonebookExportName: 'Phonebook',
+                PhonebookExport: ''
+            }, true);
+
+            if (status === 200) {
+                const xmlParser = new XMLParser();
+                
+                return xmlParser.parse(data);
+            }
+        }
+    }
+
+    /**
      * Fetches foncalls of FRITZ!Box device.
      * 
      * @param {number} skip Number with offset to skip results.
@@ -160,6 +188,29 @@ class FritzBoxApi extends HttpClient {
         }
 
         return {};
+    }
+
+    /**
+     * Processes reboot of FRITZ!Box device.
+     * 
+     * @returns Returns result of reboot process.
+     */
+    async reboot() {
+        const sid = await this.getSessionId();
+
+        if (sid) {
+            const result = await this.getData({ page: 'reboot', reboot: 1 });
+
+            if (result?.data?.reboot === 'ok') {
+                const { data, status } = await this.post(this.routes.reboot, {
+                    ajax: 1, sid, no_sidrenew: 1, xhr: 1, useajax: 1
+                });
+    
+                if (status === 200) {
+                    return data;
+                }
+            }
+        }
     }
 
     /**

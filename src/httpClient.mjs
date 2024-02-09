@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE in the project root for license information.
 
 import { stringify } from 'querystring';
-import axios from 'axios';
+import axios, { toFormData } from 'axios';
 
 /**
  * HttpClient is an abstract base class to handle HTTP request.
@@ -54,13 +54,14 @@ class HttpClient {
      * Performs POST request by given URL and data.
      * 
      * @param {string} url Target URL of endpoint.
-     * @param {string} data Data to be sent as body to server.
+     * @param {object} data Data to be sent as body to server.
+     * @param {boolean} isFormData Contains whether data is formdata. 
      * @returns Object with response of HTTP client.
      */
-    post = async (url, data) => this.request({
+    post = async (url, data, isFormData) => this.request({
         method: 'POST',
         url,
-        data: stringify(data)
+        data: isFormData ? toFormData(data) : stringify(data)
     });
 }
 

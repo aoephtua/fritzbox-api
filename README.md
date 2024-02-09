@@ -1,8 +1,30 @@
-# fritzbox-api
+<h1 style="text-align: center">fritzbox-api</h1>
 
-[![npm](https://img.shields.io/npm/v/fritzbox-api)](https://www.npmjs.com/package/fritzbox-api)
-![npm](https://img.shields.io/npm/dw/fritzbox-api?label=↓)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/aoephtua/fritzbox-api/blob/master/LICENSE)
+<p style="text-align: center">
+    <em>Node.js library to control FRITZ!Box devices using JavaScript ES6.</em>
+</p>
+
+<p style="text-align: center">
+    <a href="examples">Examples</a>
+    ·
+    <a href="src">Source</a>
+    ·
+    <a href="LICENSE">License</a>
+</p>
+
+<p style="text-align: center">
+    <a href="https://github.com/aoephtua/fritzbox-api/blob/main/LICENSE">
+        <img src="https://img.shields.io/badge/License-MIT-blue.svg?label=license" alt="license" />
+    </a>&nbsp;
+    <a href="https://www.npmjs.com/package/fritzbox-api">
+        <img src="https://img.shields.io/npm/v/fritzbox-api?label=npm" alt="npm" />
+    </a>&nbsp;
+    <a href="https://www.npmjs.com/package/fritzbox-api">
+        <img src="https://img.shields.io/npm/dw/fritzbox-api?label=downloads" alt="downloads" />
+    </a>
+</p>
+
+## Introduction
 
 Straightforward, lightweight and extendable Node.js library to communicate with FRITZ!Box devices.
 
