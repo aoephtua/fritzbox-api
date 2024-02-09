@@ -13,14 +13,20 @@
 </p>
 
 <p align="center">
+    <a href="https://github.com/aoephtua/fritzbox-api">
+        <img src="https://img.shields.io/badge/js-ES6-blue" alt="js-es6" />
+    </a>
     <a href="https://github.com/aoephtua/fritzbox-api/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-blue.svg?label=license" alt="license" />
-    </a>&nbsp;
+    </a>
     <a href="https://www.npmjs.com/package/fritzbox-api">
         <img src="https://img.shields.io/npm/v/fritzbox-api?label=npm" alt="npm" />
-    </a>&nbsp;
+    </a>
     <a href="https://www.npmjs.com/package/fritzbox-api">
         <img src="https://img.shields.io/npm/dw/fritzbox-api?label=downloads" alt="downloads" />
+    </a>
+    <a href="https://github.com/aoephtua/fritzbox-api/commits/main">
+        <img src="https://img.shields.io/github/last-commit/aoephtua/fritzbox-api" alt="commits">
     </a>
 </p>
 
