@@ -1,10 +1,10 @@
-<h1 style="text-align: center">fritzbox-api</h1>
+<h1 align="center">fritzbox-api</h1>
 
-<p style="text-align: center">
+<p align="center">
     <em>Node.js library to control FRITZ!Box devices using JavaScript ES6.</em>
 </p>
 
-<p style="text-align: center">
+<p align="center">
     <a href="examples">Examples</a>
     ·
     <a href="src">Source</a>
@@ -12,7 +12,7 @@
     <a href="LICENSE">License</a>
 </p>
 
-<p style="text-align: center">
+<p align="center">
     <a href="https://github.com/aoephtua/fritzbox-api/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-blue.svg?label=license" alt="license" />
     </a>&nbsp;
