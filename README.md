@@ -15,10 +15,10 @@
 <p align="center">
     <a href="https://github.com/aoephtua/fritzbox-api/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-blue.svg?label=license" alt="license" />
-    </a>
+    </a>&nbsp;
     <a href="https://www.npmjs.com/package/fritzbox-api">
         <img src="https://img.shields.io/npm/v/fritzbox-api?label=npm" alt="npm" />
-    </a>
+    </a>&nbsp;
     <a href="https://www.npmjs.com/package/fritzbox-api">
         <img src="https://img.shields.io/npm/dw/fritzbox-api?label=downloads" alt="downloads" />
     </a>
