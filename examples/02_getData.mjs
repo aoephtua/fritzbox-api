@@ -50,6 +50,17 @@ if (isValidAuth) {
     //const result = await fritzBoxApi.getData({ page: 'wKey' });
 
     /**
+     * 4. Fetches data of pid "log".
+     * 
+     * filter: 'all' (default), 'fon', 'net', 'usb', 'wlan', 'sys' 
+     * 
+     * const {
+     *     show, log, filter, wlanGuestPushmail, wlan
+     * } = result.data;
+     */
+    //const result = await fritzBoxApi.getData({ page: 'log', filter: 'all' });
+
+    /**
      * Notice: Use DevTools to inspect network activities and get more page identifiers.
      */
 
